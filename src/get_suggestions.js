@@ -3,7 +3,6 @@
 //  for the suggestions
 var suggestHTTPRequest;
 
-// There are three suggestion boxes to display suggestions
 const MAX_SUGGESTIONS = 3;
 
 
@@ -14,7 +13,7 @@ function processSuggestionResponse() {
     // Process the returned text into a list of objects
     var listOfResultObj = JSON.parse(this.responseText);
 
-    // Make an array to extract the words into
+    // Extract the words from the array of data
     var words = new Array();
 
     // Extract the max number of words or the number of words returned,
@@ -23,7 +22,6 @@ function processSuggestionResponse() {
 
     var i;
     for (i = 0; i < numWords; i++) {
-        // Append the word to the function
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
         words.push(listOfResultObj[i].word);
     }
@@ -38,11 +36,11 @@ function processSuggestionResponse() {
     //  words suggestions are available, then 2 boxes are filled
     switch(numWords) {
         case 3:
-            document.getElementById("predict1").innerHTML = words[2]; // Left - Fill last
+            document.getElementById("predict1").innerHTML = words[2]; // Left
         case 2:
             document.getElementById("predict3").innerHTML = words[1] // Right
         case 1:
-            document.getElementById("predict2").innerHTML = words[0] // Middle - Fill first
+            document.getElementById("predict2").innerHTML = words[0] // Middle
             break;
     }
 

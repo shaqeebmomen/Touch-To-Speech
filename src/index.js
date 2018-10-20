@@ -17,7 +17,15 @@ let keyboard = new Keyboard({
     ' a s d f g h j k l {enter}',
     '  z x c v b n m',
     '{space}'
-  ]},
+  ]/*,
+    'shift': [
+    '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
+    '{tab} Q W E R T Y U I O P { } |',
+    '{lock} A S D F G H J K L : " {enter}',
+    '{shift} Z X C V B N M < > ? {shift}',
+    '.com @ {space}'
+  ]*/
+  },
   mergeDisplay: true,
   display: {
     '{clear}' : "clear",
@@ -26,41 +34,71 @@ let keyboard = new Keyboard({
   }
 });
 
-// When the input is changed
+console.log(keyboard);
+
+// document.querySelector(".input").addEventListener("change", event => {
+//   keyboard.setInput(event.target.value);
+// });
+
 function onChange(input) {
-
-  // Change the visible input value to match the actual value
   document.querySelector(".input").value = input;
+  console.log("Input changed", input);
 
-  // Refresh the suggestions
   var searchWords = getPrevAndCurr(input);
   getSuggestions(searchWords[0],searchWords[1]);
-
 }
 
-// When a button is pressed
 function onKeyPress(button) {
+  console.log("Button pressed", button);
 
-  // If the clear button is pressed, clear the input
+  /**
+   * If you want to handle the shift and caps lock buttons
+   */
+  // if (button === "{shift}" || button === "{lock}") {
+  //   handleShift();
+  // }
   if (button === "{clear}") {
-
+    console.log("clearing input");
     keyboard.clearInput();
     onChange(keyboard.getInput());
-    
+
   }
-
-  // If the enter button is pressed, speak
   if (button === "{enter}") {
-    
-    // Start Speaking
+    console.log("THE ENTER KEY WAS PRESSED");
+    //Start Speaking
     var msg = new SpeechSynthesisUtterance(keyboard.getInput());
+    //var voices = window.speechSynthesis.getVoices();
+    // msg.voice = voices[10]; // Note: some voices don't support altering params
+    // msg.voiceURI = 'native';
+    // msg.volume = 1; // 0 to 1
+    // msg.rate = 1; // 0.1 to 10
+    // msg.pitch = 2; //0 to 2
+    // msg.text = keyboard.getInput();
+    // msg.lang = 'en-US';
 
-    // msg.onend = function(e) {
-    //   console.log('Finished in ' + event.elapsedTime + ' seconds.');
-    // };
+    msg.onend = function(e) {
+      console.log('Finished in ' + event.elapsedTime + ' seconds.');
+    };
 
-    // Play the speech sound
     window.speechSynthesis.speak(msg);
-
+    //End Speaking
     }
   }
+
+
+function handleShift() {
+  console.log("Shifting");
+  let currentLayout = keyboard.options.layoutName;
+  if (currentLayout === 'default') {
+    currentLayout = 'shift';
+  }
+  else if (currentLayout = 'shift') {
+    currentLayout = 'default'
+  }
+  // let shiftToggle = currentLayout === 'default' ? 'shift' : 'default';
+
+  keyboard.setOptions({
+    layoutName: currentLayout,
+
+  });
+}
