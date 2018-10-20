@@ -41,9 +41,6 @@ console.log(keyboard);
 function onChange(input) {
   document.querySelector(".input").value = input;
   console.log("Input changed", input);
-
-  var searchWords = getPrevAndCurr(input);
-  getSuggestions(searchWords[0],searchWords[1]);
 }
 
 function onKeyPress(button) {
