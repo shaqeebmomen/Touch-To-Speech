@@ -24,8 +24,13 @@ input {
   width: calc(100% - 1em);
 }
 
-.simple-keyboard.hg-layout-default .hg-button.myButton {
+.simple-keyboard.hg-layout-default .hg-button.hg-red {
   background: rgb(255, 0, 0, 0.7);
+  vertical-align: bottom;
   color: white;
-   height: 60px;
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-highlight {
+  box-shadow: 0px 0px 40px 5px rgba(255, 255, 0, 0.5);
+  z-index: 1;
 }
