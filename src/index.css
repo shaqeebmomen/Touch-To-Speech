@@ -1,0 +1,36 @@
+input {
+  width: 100%;
+  height: 30%;
+  padding: 2%;
+  font-size: 5em;
+  border: none;
+}
+
+.predictBox{
+  width: 100%;
+  align-items: center;
+  text-align: center;
+
+}
+.prediction{
+  width:30%;
+  display: inline-block;
+}
+.simple-keyboard.hg-theme-default.myTheme {
+  border: 1px solid rgb(250, 250, 250, 0.5);
+  border-radius: 10px;
+  margin: 10px;
+  height: 60%;
+  width: calc(100% - 1em);
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-red {
+  background: rgb(255, 0, 0, 0.7);
+  vertical-align: bottom;
+  color: white;
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-highlight {
+  box-shadow: 0px 0px 40px 5px rgba(255, 255, 0, 0.5);
+  z-index: 1;
+}
