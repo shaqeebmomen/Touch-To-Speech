@@ -84,21 +84,3 @@ function onKeyPress(button) {
     //End Speaking
     }
   }
-
-
-// function handleShift() {
-//   console.log("Shifting");
-//   let currentLayout = keyboard.options.layoutName;
-//   if (currentLayout === 'default') {
-//     currentLayout = 'shift';
-//   }
-//   else if (currentLayout = 'shift') {
-//     currentLayout = 'default'
-//   }
-//   // let shiftToggle = currentLayout === 'default' ? 'shift' : 'default';
-
-//   keyboard.setOptions({
-//     layoutName: currentLayout,
-
-//   });
-// }
