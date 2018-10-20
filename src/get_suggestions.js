@@ -14,7 +14,7 @@ function processSuggestionResponse() {
     var listOfResultObj = JSON.parse(this.responseText);
 
     // Extract the words from the array of data
-    var words = Array();
+    var words = new Array();
 
     // Extract the max number of words or the number of words returned,
     //  whichever is smaller
@@ -23,7 +23,7 @@ function processSuggestionResponse() {
     var i;
     for (i = 0; i < numWords; i++) {
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
-        words.append(listOfResultObj[i].word);
+        words.push(listOfResultObj[i].word);
     }
 
     // Put the data into the buttons:
@@ -46,7 +46,7 @@ function processSuggestionResponse() {
 function getSuggestions(previousWord, currentWord) {
 
      
-    suggestHTTPRequest = XMLHttpRequest();
+    suggestHTTPRequest = new XMLHttpRequest();
 
     // Connect the request to an event listener so that it runs the function when it gets a response
     //  https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
@@ -55,14 +55,14 @@ function getSuggestions(previousWord, currentWord) {
     // Open and send an HTTP request to the datamuse server with the given words
     //  https://www.w3schools.com/js/js_json_parse.asp
     //  https://stackoverflow.com/questions/247483/http-get-request-in-javascript
-    suggestHTTPRequest.open(GET, "https://api.datamuse.com/words?lc=" + previousWord + "&sp=" + currentWord + "*");
+    suggestHTTPRequest.open('GET', "https://api.datamuse.com/words?lc=" + previousWord + "&sp=" + currentWord + "*");
     suggestHTTPRequest.send();
 
 }
 
 
 // Extracts the previous and current words from the text entered in the text box
-function getPrevAndCurr() {
+function getPrevAndCurr(input) {
 
     // Get a copy of the string through slicing
     var toAnalyse = input.slice(0).split(" ");
