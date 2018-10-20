@@ -7,15 +7,15 @@ let keyboard = new Keyboard({
   buttonTheme: [
     {
       class: "myButton",
-      buttons: " q w e r t y u i o p a s d f g h j k l z x c v b n m"
+      buttons: "{enter} {bksp} {clear} {space}  1 2 3 4 5 6 7 8 9 0 q w e r t y u i o p a s d f g h j k l z x c v b n m"
     },
   ],
   layout: {
     'default': [
-    '1 2 3 4 5 6 7 8 9 0 - = {bksp}',
-    ' q w e r t y u i o p {clear} ',
-    'a s d f g h j k l {enter}',
-    'z x c v b n m {shift}',
+    '1 2 3 4 5 6 7 8 9 0 {bksp}',
+    'q w e r t y u i o p {clear}',
+    ' a s d f g h j k l {enter}',
+    '  z x c v b n m',
     '{space}'
   ]/*,
     'shift': [
@@ -26,8 +26,10 @@ let keyboard = new Keyboard({
     '.com @ {space}'
   ]*/
   },
+  mergeDisplay: true,
   display: {
-    '{clear}' : "clear"
+    '{clear}' : "clear",
+    '{enter}' : "enter"
 
   }
 });
@@ -41,6 +43,9 @@ console.log(keyboard);
 function onChange(input) {
   document.querySelector(".input").value = input;
   console.log("Input changed", input);
+
+  var searchWords = getPrevAndCurr(input);
+  getSuggestions(searchWords[0],searchWords[1]);
 }
 
 function onKeyPress(button) {
