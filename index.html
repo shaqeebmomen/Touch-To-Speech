@@ -2,24 +2,24 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
 	<link rel="stylesheet" href="src/index.css">
+  <script src="src/put_suggestion.js"></script>
+  <script src="src/get_suggestions.js"></script>
 </head>
 
 <body>
-
-	<!-- Contains functions that are used in the HTML -->
-	<script src="src/put_suggestion.js"></script>
-	
-	<input class="input" placeholder="Tap on the virtual keyboard to start" />
+  <input class="input" placeholder="Tap on the virtual keyboard to start" />
 	<div class="predictBox">
-		<h1 class="prediction" id="predict1" onclick="appendContentsToBox(this)">Prediction One</h1>
-		<h1 class="prediction" id="predict2" onclick="appendContentsToBox(this)">Prediction Two</h1>
-		<h1 class="prediction" id="predict3" onclick="appendContentsToBox(this)">Prediction Three</h1>
+		<h1 class="prediction" id="predict1" onclick="appendContentsToBox(this)"></h1>
+		<h1 class="prediction" id="predict2" onclick="appendContentsToBox(this)"></h1>
+		<h1 class="prediction" id="predict3" onclick="appendContentsToBox(this)"></h1>
 	</div>
   <div class="simple-keyboard"></div>
 
-	<script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.min.js"></script>
-	<script src="src/get_suggestions.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.min.js"></script>
   <script src="src/index.js"></script>
+  
+
+  </script>
 </body>
 
 </html>

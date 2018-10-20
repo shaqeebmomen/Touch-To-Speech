@@ -50,7 +50,7 @@ function processSuggestionResponse() {
 
 function getSuggestions(previousWord, currentWord) {
 
-     
+
     suggestHTTPRequest = new XMLHttpRequest();
 
     // Connect the request to an event listener so that it runs the function when it gets a response
