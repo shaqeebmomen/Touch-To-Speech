@@ -84,19 +84,19 @@ function onKeyPress(button) {
   }
 
 
-function handleShift() {
-  console.log("Shifting");
-  let currentLayout = keyboard.options.layoutName;
-  if (currentLayout === 'default') {
-    currentLayout = 'shift';
-  }
-  else if (currentLayout = 'shift') {
-    currentLayout = 'default'
-  }
-  // let shiftToggle = currentLayout === 'default' ? 'shift' : 'default';
+// function handleShift() {
+//   console.log("Shifting");
+//   let currentLayout = keyboard.options.layoutName;
+//   if (currentLayout === 'default') {
+//     currentLayout = 'shift';
+//   }
+//   else if (currentLayout = 'shift') {
+//     currentLayout = 'default'
+//   }
+//   // let shiftToggle = currentLayout === 'default' ? 'shift' : 'default';
 
-  keyboard.setOptions({
-    layoutName: currentLayout,
+//   keyboard.setOptions({
+//     layoutName: currentLayout,
 
-  });
-}
+//   });
+// }
