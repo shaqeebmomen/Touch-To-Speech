@@ -14,9 +14,14 @@ console.log(keyboard);
 //   keyboard.setInput(event.target.value);
 // });
 
+
 function onChange(input) {
   document.querySelector(".input").value = input;
   console.log("Input changed", input);
+
+  var searchWords = getPrevAndCurr(input);
+  getSuggestions(searchWords[0], searchWords[1]);
+
 }
 
 function onKeyPress(button) {
@@ -31,8 +36,8 @@ function onKeyPress(button) {
   if (button === "{enter}") {
     console.log("THE ENTER KEY WAS PRESSED");
     //Put the text to speech stuff here
-    }
   }
+}
 
 
 function handleShift() {

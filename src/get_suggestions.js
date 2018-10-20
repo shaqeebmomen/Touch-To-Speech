@@ -26,6 +26,11 @@ function processSuggestionResponse() {
         words.push(listOfResultObj[i].word);
     }
 
+    // Clear current value of buttons
+    document.getElementById("predict1").innerHTML = "";
+    document.getElementById("predict2").innerHTML = "";
+    document.getElementById("predict3").innerHTML = "";
+
     // Put the data into the buttons:
     //  Note that the switch cases run into each other, so that if 2
     //  words suggestions are available, then 2 boxes are filled
