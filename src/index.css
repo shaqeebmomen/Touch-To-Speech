@@ -27,5 +27,6 @@ input {
 .simple-keyboard.hg-layout-default .hg-button.myButton {
   background: rgb(255, 0, 0, 0.7);
   color: white;
-   height: 60px;
+  width: 6em;
+  height: 5em;
 }
